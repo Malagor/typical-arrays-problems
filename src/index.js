@@ -1,12 +1,23 @@
 
 exports.min = function min (array) {
-  return 0;
-}
+    if (!Array.isArray(array) || !array.length) return 0;
+
+    const sortArray = array.sort((a, b) => a > b ? 1: -1);
+    return sortArray[0];
+};
 
 exports.max = function max (array) {
-  return 0;
-}
+    if (!Array.isArray(array) || !array.length) return 0;
+
+    const sortArray = array.sort((a, b) => a > b ? 1: -1);
+    return sortArray[sortArray.length - 1];
+};
 
 exports.avg = function avg (array) {
-  return 0;
-}
+    if (!Array.isArray(array) || !array.length) return 0;
+
+    const reducer = array.reduce((accum, current) => accum + current, 0);
+
+    return reducer / array.length;
+
+};
