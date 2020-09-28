@@ -2,15 +2,14 @@
 exports.min = function min (array) {
     if (!Array.isArray(array) || !array.length) return 0;
 
-    const sortArray = array.sort((a, b) => a > b ? 1: -1);
-    return sortArray[0];
+    return array.sort((a, b) => a > b ? 1: -1)[0];
 };
 
 exports.max = function max (array) {
     if (!Array.isArray(array) || !array.length) return 0;
 
-    const sortArray = array.sort((a, b) => a > b ? 1: -1);
-    return sortArray[sortArray.length - 1];
+    return array.sort((a, b) => a > b ? 1: -1)[array.length - 1];
+
 };
 
 exports.avg = function avg (array) {
