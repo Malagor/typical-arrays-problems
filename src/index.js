@@ -1,22 +1,26 @@
 
 exports.min = function min (array) {
-    if (!Array.isArray(array) || !array.length) return 0;
-
-    return array.sort((a, b) => a > b ? 1: -1)[0];
+    return checkArray(array)
+        ? array.sort(sort)[0]
+        : false;
 };
 
 exports.max = function max (array) {
-    if (!Array.isArray(array) || !array.length) return 0;
-
-    return array.sort((a, b) => a > b ? 1: -1)[array.length - 1];
-
+    return checkArray(array)
+        ? array.sort(sort)[array.length - 1]
+        : false;
 };
 
 exports.avg = function avg (array) {
-    if (!Array.isArray(array) || !array.length) return 0;
-
-    const reducer = array.reduce((accum, current) => accum + current, 0);
-
-    return reducer / array.length;
-
+    return checkArray(array)
+        ? array.reduce((accum, current) => accum + current, 0) / array.length
+        : false;
 };
+
+function checkArray(array) {
+    return !(!Array.isArray(array) || !array.length);
+}
+
+function sort (a, b) {
+ return a - b;
+}
